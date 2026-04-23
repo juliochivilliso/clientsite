@@ -49,7 +49,7 @@ export function DashboardHeader({ customLeft }: DashboardHeaderProps) {
               className="w-10 h-10 object-contain"
             />
             <span className="text-lg font-black tracking-tight uppercase text-foreground">
-              TRIAX <span className="text-accent">PGI</span>
+              TRIAX <span className="text-accent">SERVICIOS</span>
             </span>
           </div>
         )}

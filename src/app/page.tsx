@@ -1,101 +1,91 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React from 'react';
+import { LoginSidebar } from '@/components/login/LoginSidebar';
+import { LoginForm } from '@/components/login/LoginForm';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
+
+/**
+ * LoginPage
+ * Orchestrates the split-screen login experience.
+ * Mobile-First: Stacked on mobile, Split-screen on Desktop (lg+).
+ */
+export default function LoginPage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="min-h-screen flex flex-col lg:flex-row bg-background font-sans selection:bg-accent/30 transition-colors duration-500 overflow-x-hidden">
+      
+      {/* --- Section Left: Branding (Full height Aside) --- */}
+      <div className="hidden lg:block w-[40%] xl:w-[35%]">
+        <LoginSidebar />
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* --- Section Right: Form Container --- */}
+      <section 
+        aria-labelledby="login-title"
+        className="flex-1 flex flex-col items-center justify-center p-4 md:p-8 relative bg-background overflow-y-auto"
+      >
+        
+        {/* Toggle Theme - Technical positioning */}
+        <div className="absolute top-6 right-6 lg:top-8 lg:right-8 transition-opacity duration-700">
+          <ThemeToggle />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        {/* The Card with Advanced Elevation and 3D Logic */}
+        <article className="
+          w-full max-w-[420px] 
+          bg-card 
+          lg:rounded-[2.5rem] rounded-[1.5rem] 
+          p-8 md:p-10
+          shadow-layered-depth
+          dark:shadow-none
+          dark:bg-card-volume
+          dark:border dark:border-white/10
+          dark:inner-glow-top
+          backdrop-blur-xl 
+          animate-in zoom-in-95 duration-500
+          relative z-10
+          my-8
+        ">
+          
+          <header className="flex flex-col items-center mb-8">
+            {/* Mobile Logo Branding (Original Brand Asset) */}
+            <div className="lg:hidden flex flex-col items-center mb-6">
+              <div className="relative group cursor-pointer">
+                <div className="absolute -inset-2 bg-accent/20 rounded-full blur-xl opacity-50"></div>
+                <img
+                  src="/logo_triax_pgi_2.png"
+                  alt="TRIAX PGI Logo"
+                  width={96}
+                  height={96}
+                  className="relative w-24 h-24 mb-2 object-contain drop-shadow-[0_0_8px_rgba(59,130,246,0.2)]"
+                />
+              </div>
+              <div className="h-1 w-12 bg-gradient-to-r from-accent to-blue-500 rounded-full"></div>
+            </div>
+
+            <h1 id="login-title" className="text-2xl md:text-3xl font-black text-foreground tracking-tight text-center uppercase">
+              Gestioná tus <span className="text-accent">Servicios</span>
+            </h1>
+            <p className="mt-2 text-xs md:text-sm text-muted-foreground text-center font-semibold max-w-[280px] leading-relaxed">
+              Ingresá tus credenciales para acceder a tu cuenta y gestionar tus servicios.
+            </p>
+          </header>
+
+          <LoginForm />
+          
+          <footer className="mt-8 pt-6 border-t border-border/40 text-center">
+            <p className="text-[9px] text-muted-foreground font-black uppercase tracking-[0.2em] leading-relaxed">
+              Propiedad de TRIAX Telecomunicaciones.<br />
+              Portal de Clientes.
+            </p>
+          </footer>
+        </article>
+
+        {/* Legal Footer (Strict WCAG AA #94A3B8 in Dark) */}
+        <footer className="mt-4 pb-4 text-[9px] text-muted-foreground uppercase tracking-widest font-black">
+          © 2026 TRIAX PGI v4.0.0 &bull; Seguridad Industrial
+        </footer>
+      </section>
+    </main>
   );
 }

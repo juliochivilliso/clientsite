@@ -15,7 +15,7 @@ const geistMono = Fira_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TRIAX PGI — Portal Interno",
+  title: "TRIAX SERVICES — Portal Interno",
   description: "Plataforma de Gestión Integrada para telecomunicaciones e IoT. Gestión de contratos, inventario, telemetría y facturación multi-tenant.",
   icons: {
     icon: "/logo_triax_pgi_2.png",

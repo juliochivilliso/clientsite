@@ -1,13 +1,16 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { DashboardHeader } from '@/components/dashboard/DashboardHeader';
-import { LoadingWrapper } from '@/components/ui/LoadingWrapper';
-import { ArrowLeft, Wifi, Phone, MapPin } from 'lucide-react';
+import { Wifi, Phone, MapPin, ExternalLink } from 'lucide-react';
+import { useToast } from '@/components/ui/Toast';
+import { ModuleLayout } from '@/components/dashboard/ModuleLayout';
+import { Modal } from '@/components/ui/Modal';
 
 export default function MisServiciosPage() {
   const router = useRouter();
+  const { showToast, ToastComponent } = useToast();
+  const [selectedService, setSelectedService] = useState<string | null>(null);
 
   useEffect(() => {
     const token = localStorage.getItem('pgi_token');
@@ -17,29 +20,10 @@ export default function MisServiciosPage() {
   }, [router]);
 
   return (
-    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
-      <DashboardHeader 
-        customLeft={
-          <button
-            onClick={() => router.push('/dashboard')}
-            className="inline-flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-foreground transition-colors group"
-            aria-label="Volver al dashboard"
-          >
-            <ArrowLeft size={16} className="group-hover:-translate-x-0.5 transition-transform" />
-            Volver
-          </button>
-        }
-      />
-
-      {/* ── Main ─────────────────────────────────────────────── */}
-      <main className="max-w-6xl mx-auto px-6 py-14">
-        <LoadingWrapper>
+    <ModuleLayout activeModule="mis-servicios">
+      <div className="max-w-4xl mx-auto px-6 py-10">
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <p className="text-xs font-black uppercase tracking-[0.25em] text-accent mb-1">Portal de Cliente</p>
-          <h1 className="text-4xl font-black tracking-tight text-foreground mb-2">
-            Mis Servicios
-          </h1>
-          <p className="text-muted-foreground font-medium mb-12">Tus servicios contratados y su estado actual.</p>
+          <p className="text-muted-foreground font-medium mb-8">Tus servicios contratados y su estado actual.</p>
 
           <div className="space-y-4">
             {/* Servicio 1 */}
@@ -61,7 +45,10 @@ export default function MisServiciosPage() {
                 <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
                   Activo
                 </span>
-                <button className="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest border border-accent/30 text-accent hover:bg-accent/5 transition-colors">
+                <button 
+                  onClick={() => setSelectedService('fibra')}
+                  className="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest border border-accent/30 text-accent hover:bg-accent/5 transition-colors"
+                >
                   Ver detalle
                 </button>
               </div>
@@ -80,13 +67,16 @@ export default function MisServiciosPage() {
               </div>
               <div className="flex flex-col md:items-end gap-1 text-sm">
                 <span className="text-muted-foreground">Desde 01 Mar 2025</span>
-                <span className="font-semibold text-foreground">Vencimiento: 28 Feb 2026</span>
+                <span className="font-semibold text-foreground">Vencimiento: 28 Feb 2027</span>
               </div>
               <div className="flex items-center justify-between md:justify-end gap-4 mt-4 md:mt-0">
                 <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
                   Activo
                 </span>
-                <button className="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest border border-accent/30 text-accent hover:bg-accent/5 transition-colors">
+                <button 
+                  onClick={() => setSelectedService('voip')}
+                  className="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest border border-accent/30 text-accent hover:bg-accent/5 transition-colors"
+                >
                   Ver detalle
                 </button>
               </div>
@@ -105,21 +95,65 @@ export default function MisServiciosPage() {
               </div>
               <div className="flex flex-col md:items-end gap-1 text-sm">
                 <span className="text-muted-foreground">Desde 15 Abr 2025</span>
-                <span className="font-semibold text-foreground">Vencimiento: 15 Abr 2026</span>
+                <span className="font-semibold text-foreground">Vencimiento: 15 Abr 2027</span>
               </div>
               <div className="flex items-center justify-between md:justify-end gap-4 mt-4 md:mt-0">
                 <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
                   Activo
                 </span>
-                <button className="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest border border-accent/30 text-accent hover:bg-accent/5 transition-colors">
+                <button 
+                  onClick={() => setSelectedService('gps')}
+                  className="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest border border-accent/30 text-accent hover:bg-accent/5 transition-colors"
+                >
                   Ver detalle
                 </button>
               </div>
             </article>
           </div>
         </div>
-        </LoadingWrapper>
-      </main>
-    </div>
+      </div>
+      {ToastComponent}
+
+      {/* Modals */}
+      <Modal open={selectedService === 'fibra'} onClose={() => setSelectedService(null)} title="Internet Fibra Óptica">
+        <ul className="space-y-1">
+          <li className="flex justify-between py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Velocidad contratada</span><span className="text-sm font-semibold text-foreground">100 Mbps simétrico</span></li>
+          <li className="flex justify-between py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">IP Asignada</span><span className="text-sm font-semibold text-foreground">186.24.115.42</span></li>
+          <li className="flex justify-between py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Facturación</span><span className="text-sm font-semibold text-foreground">1ro de cada mes</span></li>
+          <li className="flex justify-between py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Técnico asignado</span><span className="text-sm font-semibold text-foreground">Ing. Roberto Sánchez</span></li>
+          <li className="flex justify-between py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Contacto técnico</span><span className="text-sm font-semibold text-foreground">+54 9 11 4523-8821</span></li>
+          <li className="flex justify-between py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Estado</span><span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Activo</span></li>
+          <li className="flex justify-between py-2 border-b border-border/40 last:border-0"><span className="text-sm text-muted-foreground">Uptime</span><span className="text-sm font-semibold text-foreground">99.8% últimos 30 días</span></li>
+        </ul>
+      </Modal>
+
+      <Modal open={selectedService === 'voip'} onClose={() => setSelectedService(null)} title="Telefonía VoIP">
+        <ul className="space-y-1">
+          <li className="flex justify-between py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Líneas</span><span className="text-sm font-semibold text-foreground">2 líneas DDI</span></li>
+          <li className="flex justify-between py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Número 1</span><span className="text-sm font-semibold text-foreground">+54 11 5230-4400</span></li>
+          <li className="flex justify-between py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Número 2</span><span className="text-sm font-semibold text-foreground">+54 11 5230-4401</span></li>
+          <li className="flex justify-between py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Minutos incluidos</span><span className="text-sm font-semibold text-foreground">Ilimitados local y nacional</span></li>
+          <li className="flex justify-between py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Facturación</span><span className="text-sm font-semibold text-foreground">1ro de cada mes</span></li>
+          <li className="flex justify-between py-2 border-b border-border/40 last:border-0"><span className="text-sm text-muted-foreground">Estado</span><span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Activo</span></li>
+        </ul>
+      </Modal>
+
+      <Modal open={selectedService === 'gps'} onClose={() => setSelectedService(null)} title="Monitoreo GPS Flota">
+        <ul className="space-y-1">
+          <li className="flex justify-between items-center py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Unidades monitoreadas</span><span className="text-sm font-semibold text-foreground">7 / 10</span></li>
+          <li className="flex justify-between items-center py-2 border-b border-border/40">
+            <span className="text-sm text-muted-foreground">Plataforma</span>
+            <a href="https://trackpro-web.vercel.app/" target="_blank" rel="noreferrer" className="text-sm font-semibold text-accent hover:underline flex items-center gap-1">
+              trackpro-web.vercel.app <ExternalLink size={12} />
+            </a>
+          </li>
+          <li className="flex justify-between py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Cobertura</span><span className="text-sm font-semibold text-foreground">Nacional</span></li>
+          <li className="flex justify-between py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Actualización</span><span className="text-sm font-semibold text-foreground">Cada 30 segundos</span></li>
+          <li className="flex justify-between py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Soporte técnico</span><span className="text-sm font-semibold text-foreground">24/7</span></li>
+          <li className="flex justify-between py-2 border-b border-border/40 last:border-0"><span className="text-sm text-muted-foreground">Estado</span><span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Activo</span></li>
+        </ul>
+      </Modal>
+
+    </ModuleLayout>
   );
 }

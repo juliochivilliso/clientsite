@@ -121,7 +121,7 @@ export default function DashboardPage() {
               <CalendarClock size={20} />
             </div>
             <div>
-              <p className="text-xl font-black text-foreground leading-none">28 Feb 2026</p>
+              <p className="text-xl font-black text-foreground leading-none">31 Dic 2026</p>
               <p className="text-xs text-muted-foreground font-semibold uppercase tracking-widest mt-1">Próximo vencimiento</p>
             </div>
           </article>

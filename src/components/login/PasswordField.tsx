@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
+import { Modal } from '@/components/ui/Modal';
 
 interface PasswordFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -22,6 +23,7 @@ export const PasswordField: React.FC<PasswordFieldProps> = ({
   ...props 
 }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="space-y-1.5">
@@ -33,13 +35,14 @@ export const PasswordField: React.FC<PasswordFieldProps> = ({
           {label || 'Clave de Acceso'}
         </label>
         {showForgotPassword && (
-          <a 
-            href="#" 
+          <button 
+            type="button" 
+            onClick={() => setShowModal(true)} 
             className="text-xs font-bold text-accent hover:underline transition-all"
             aria-label="Recuperar Clave de Acceso olvidada"
           >
             ¿Olvidaste tu clave?
-          </a>
+          </button>
         )}
       </div>
 
@@ -86,6 +89,9 @@ export const PasswordField: React.FC<PasswordFieldProps> = ({
           {error}
         </p>
       )}
+      <Modal open={showModal} onClose={() => setShowModal(false)} title="Recuperar clave">
+        <p className="text-sm text-muted-foreground">Comunicate con soporte al correo <span className="font-semibold text-foreground">soporte@triax.com</span> para recuperar tu clave de acceso.</p>
+      </Modal>
     </div>
   );
 };

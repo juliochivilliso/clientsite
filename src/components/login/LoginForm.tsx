@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui';
 import { PasswordField } from './PasswordField';
 import { LogIn } from 'lucide-react';
+import { Modal } from '@/components/ui/Modal';
 
 export const LoginForm: React.FC = () => {
   const router = useRouter();
@@ -14,6 +15,7 @@ export const LoginForm: React.FC = () => {
   const [showMfa, setShowMfa] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
   const [rememberMe, setRememberMe] = useState(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('pgi_remember') === 'true';
@@ -149,10 +151,13 @@ export const LoginForm: React.FC = () => {
 
       <p className="text-center text-[11px] text-muted-foreground font-medium pt-4 border-t border-border/30">
         ¿No tenés cuenta?{' '}
-        <a href="#" className="text-accent font-bold hover:underline" aria-label="Comunicate con soporte">
+        <button type="button" onClick={() => setShowContactModal(true)} className="text-accent font-bold hover:underline" aria-label="Comunicate con soporte">
           Comunicate con soporte
-        </a>
+        </button>
       </p>
+      <Modal open={showContactModal} onClose={() => setShowContactModal(false)} title="Contactar soporte">
+        <p className="text-sm text-muted-foreground">Para solicitar acceso o asistencia, escribinos a <span className="font-semibold text-foreground">soporte@triax.com</span>.</p>
+      </Modal>
     </form>
   );
 };

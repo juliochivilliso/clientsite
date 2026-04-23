@@ -51,7 +51,7 @@ const modules = [
     icon: MapPin,
     title: 'TrakPro',
     description: 'Seguimiento en tiempo real de tu flota y activos.',
-    href: 'https://trackproweb-henna.vercel.app/',
+    href: 'https://trackpro-web.vercel.app/',
     external: true,
     accentColor: 'from-emerald-500 to-teal-600',
     shadowColor: 'shadow-emerald-500/20',
@@ -84,7 +84,7 @@ export default function DashboardPage() {
         <section className="mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <p className="text-xs font-black uppercase tracking-[0.25em] text-accent mb-1">Portal de Cliente</p>
           <h1 className="text-4xl font-black tracking-tight text-foreground">
-            Bienvenido, <span className="text-accent">Carlos Méndez</span>
+            Bienvenido, <span className="text-accent">Administrador</span>
           </h1>
           <p className="mt-2 text-muted-foreground font-medium max-w-lg">
             Accedé a tus servicios, soporte y herramientas desde un único panel de control.

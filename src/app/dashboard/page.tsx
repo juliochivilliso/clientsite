@@ -94,7 +94,7 @@ export default function DashboardPage() {
         {/* KPIs */}
         <section className="mb-12 grid grid-cols-1 md:grid-cols-3 gap-4 animate-in fade-in slide-in-from-bottom-5 duration-700 delay-75">
           {/* KPI 1 */}
-          <article className="flex items-center gap-4 bg-card dark:bg-[#15191e] border border-border dark:border-white/10 rounded-2xl px-5 py-4">
+          <article className="flex items-center gap-4 bg-card border border-border rounded-2xl px-5 py-4">
             <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent">
               <Wifi size={20} />
             </div>
@@ -105,7 +105,7 @@ export default function DashboardPage() {
           </article>
 
           {/* KPI 2 */}
-          <article className="flex items-center gap-4 bg-card dark:bg-[#15191e] border border-border dark:border-white/10 rounded-2xl px-5 py-4">
+          <article className="flex items-center gap-4 bg-card border border-border rounded-2xl px-5 py-4">
             <div className="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500">
               <Ticket size={20} />
             </div>
@@ -116,7 +116,7 @@ export default function DashboardPage() {
           </article>
 
           {/* KPI 3 */}
-          <article className="flex items-center gap-4 bg-card dark:bg-[#15191e] border border-border dark:border-white/10 rounded-2xl px-5 py-4">
+          <article className="flex items-center gap-4 bg-card border border-border rounded-2xl px-5 py-4">
             <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
               <CalendarClock size={20} />
             </div>
@@ -144,8 +144,8 @@ export default function DashboardPage() {
                 key={mod.id}
                 className="
                   group relative flex flex-col gap-6 p-7
-                  bg-card dark:bg-[#15191e]
-                  border border-border dark:border-white/10
+                  bg-card
+                  border border-border
                   dark:inner-glow-top
                   rounded-3xl
                   shadow-sm hover:shadow-lg hover:shadow-accent/5

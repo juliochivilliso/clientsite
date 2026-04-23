@@ -43,7 +43,7 @@ export default function MisServiciosPage() {
 
           <div className="space-y-4">
             {/* Servicio 1 */}
-            <article className="flex max-md:flex-col md:items-center justify-between bg-card dark:bg-[#15191e] border border-border dark:border-white/10 dark:inner-glow-top rounded-2xl p-5 gap-4">
+            <article className="flex max-md:flex-col md:items-center justify-between bg-card border border-border dark:inner-glow-top rounded-2xl p-5 gap-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 flex-shrink-0">
                   <Wifi size={24} />
@@ -68,7 +68,7 @@ export default function MisServiciosPage() {
             </article>
 
             {/* Servicio 2 */}
-            <article className="flex max-md:flex-col md:items-center justify-between bg-card dark:bg-[#15191e] border border-border dark:border-white/10 dark:inner-glow-top rounded-2xl p-5 gap-4">
+            <article className="flex max-md:flex-col md:items-center justify-between bg-card border border-border dark:inner-glow-top rounded-2xl p-5 gap-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-500 flex-shrink-0">
                   <Phone size={24} />
@@ -93,7 +93,7 @@ export default function MisServiciosPage() {
             </article>
 
             {/* Servicio 3 */}
-            <article className="flex max-md:flex-col md:items-center justify-between bg-card dark:bg-[#15191e] border border-border dark:border-white/10 dark:inner-glow-top rounded-2xl p-5 gap-4">
+            <article className="flex max-md:flex-col md:items-center justify-between bg-card border border-border dark:inner-glow-top rounded-2xl p-5 gap-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 flex-shrink-0">
                   <MapPin size={24} />

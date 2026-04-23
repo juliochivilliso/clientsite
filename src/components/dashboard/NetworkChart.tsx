@@ -15,7 +15,7 @@ const data = [
 
 export function NetworkChart() {
   return (
-    <div className="w-full h-80 bg-card dark:bg-[#15191e] border border-border dark:border-white/10 dark:inner-glow-top rounded-3xl p-6 relative overflow-hidden group">
+    <div className="w-full h-80 bg-card border border-border dark:inner-glow-top rounded-3xl p-6 relative overflow-hidden group">
       
       {/* Decorative gradient */}
       <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-blue-500/5 blur-3xl group-hover:bg-blue-500/10 transition-colors duration-500 pointer-events-none" />
@@ -61,14 +61,14 @@ export function NetworkChart() {
             />
             <Tooltip 
               contentStyle={{ 
-                backgroundColor: 'hsl(var(--card))', 
+                backgroundColor: 'var(--card)', 
                 borderRadius: '16px', 
-                border: '1px solid hsl(var(--border))',
+                border: '1px solid var(--border)',
                 boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)'
               }}
               itemStyle={{ color: '#3b82f6', fontWeight: 'bold' }}
-              labelStyle={{ color: 'hsl(var(--muted-foreground))', fontWeight: 'bold', marginBottom: '4px' }}
-              cursor={{ stroke: 'hsl(var(--border))', strokeWidth: 1, strokeDasharray: '4 4' }}
+              labelStyle={{ color: 'var(--muted-foreground)', fontWeight: 'bold', marginBottom: '4px' }}
+              cursor={{ stroke: 'var(--border)', strokeWidth: 1, strokeDasharray: '4 4' }}
             />
             <Area 
               type="monotone" 

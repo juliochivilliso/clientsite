@@ -65,7 +65,7 @@ export function DashboardHeader({ customLeft }: DashboardHeaderProps) {
               aria-label="Menú de usuario"
             >
               <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-sm font-bold shadow-sm shadow-blue-500/20 border-2 border-background/20 relative group-hover:scale-105 transition-transform">
-                CM
+                AD
                 <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border border-background rounded-full"></span>
               </div>
               <ChevronDown size={14} className={`text-muted-foreground transition-transform duration-200 hidden sm:block ${dropdownOpen ? 'rotate-180' : ''}`} />
@@ -75,8 +75,8 @@ export function DashboardHeader({ customLeft }: DashboardHeaderProps) {
             {dropdownOpen && (
               <div className="absolute right-0 mt-3 w-56 bg-card border border-border/50 shadow-xl shadow-black/10 dark:shadow-black/40 rounded-2xl py-2 animate-in zoom-in-95 duration-200 origin-top-right overflow-hidden glassmorphism">
                 <div className="px-4 py-3 border-b border-border/40">
-                  <p className="text-sm font-bold text-foreground">Carlos Méndez</p>
-                  <p className="text-xs text-muted-foreground truncate">cmendez@empresa.com</p>
+                  <p className="text-sm font-bold text-foreground">Administrador</p>
+                  <p className="text-xs text-muted-foreground truncate">admin@empresa.com</p>
                 </div>
                 
                 <div className="py-1">

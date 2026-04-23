@@ -51,7 +51,7 @@ export default function HelpdeskPage() {
 
           <div className="space-y-4">
             {/* Ticket 1 */}
-            <article className="flex max-md:flex-col md:items-center justify-between bg-card dark:bg-[#15191e] border border-border dark:border-white/10 dark:inner-glow-top rounded-2xl p-5 gap-4">
+            <article className="flex max-md:flex-col md:items-center justify-between bg-card border border-border dark:inner-glow-top rounded-2xl p-5 gap-4">
               <div className="flex flex-col gap-1 md:w-1/3">
                 <span className="text-xs text-muted-foreground font-mono">#1042</span>
                 <h3 className="text-base font-bold text-foreground leading-snug">Sin señal en sede norte</h3>
@@ -76,7 +76,7 @@ export default function HelpdeskPage() {
             </article>
 
             {/* Ticket 2 */}
-            <article className="flex max-md:flex-col md:items-center justify-between bg-card dark:bg-[#15191e] border border-border dark:border-white/10 dark:inner-glow-top rounded-2xl p-5 gap-4">
+            <article className="flex max-md:flex-col md:items-center justify-between bg-card border border-border dark:inner-glow-top rounded-2xl p-5 gap-4">
               <div className="flex flex-col gap-1 md:w-1/3">
                 <span className="text-xs text-muted-foreground font-mono">#1038</span>
                 <h3 className="text-base font-bold text-foreground leading-snug">Factura con monto incorrecto</h3>
@@ -101,7 +101,7 @@ export default function HelpdeskPage() {
             </article>
 
             {/* Ticket 3 */}
-            <article className="flex max-md:flex-col md:items-center justify-between bg-card dark:bg-[#15191e] border border-border dark:border-white/10 dark:inner-glow-top rounded-2xl p-5 gap-4">
+            <article className="flex max-md:flex-col md:items-center justify-between bg-card border border-border dark:inner-glow-top rounded-2xl p-5 gap-4">
               <div className="flex flex-col gap-1 md:w-1/3">
                 <span className="text-xs text-muted-foreground font-mono">#1031</span>
                 <h3 className="text-base font-bold text-foreground leading-snug">Solicitud de aumento de ancho de banda</h3>

@@ -143,8 +143,8 @@ export default function MisServiciosPage() {
           <li className="flex justify-between items-center py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Unidades monitoreadas</span><span className="text-sm font-semibold text-foreground">7 / 10</span></li>
           <li className="flex justify-between items-center py-2 border-b border-border/40">
             <span className="text-sm text-muted-foreground">Plataforma</span>
-            <a href="https://trackpro-web.vercel.app/" target="_blank" rel="noreferrer" className="text-sm font-semibold text-accent hover:underline flex items-center gap-1">
-              trackpro-web.vercel.app <ExternalLink size={12} />
+            <a href="http://51.161.107.103:3000/" target="_blank" rel="noreferrer" className="text-sm font-semibold text-accent hover:underline flex items-center gap-1">
+              TrackPro <ExternalLink size={12} />
             </a>
           </li>
           <li className="flex justify-between py-2 border-b border-border/40"><span className="text-sm text-muted-foreground">Cobertura</span><span className="text-sm font-semibold text-foreground">Nacional</span></li>

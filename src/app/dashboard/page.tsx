@@ -51,7 +51,7 @@ const modules = [
     icon: MapPin,
     title: 'TrakPro',
     description: 'Seguimiento en tiempo real de tu flota y activos.',
-    href: 'https://trackpro-web.vercel.app/',
+    href: 'http://51.161.107.103:3000/',
     external: true,
     accentColor: 'from-emerald-500 to-teal-600',
     shadowColor: 'shadow-emerald-500/20',

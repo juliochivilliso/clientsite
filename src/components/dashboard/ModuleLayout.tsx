@@ -61,7 +61,7 @@ export function ModuleLayout({ children, activeModule }: ModuleLayoutProps) {
             Helpdesk
           </div>
           <div 
-            onClick={() => window.open('https://trackpro-web.vercel.app/', '_blank')}
+            onClick={() => window.open('http://51.161.107.103:3000/', '_blank')}
             className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer text-muted-foreground hover:text-foreground hover:bg-muted"
           >
             <MapPin size={20} />

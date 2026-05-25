@@ -1,16 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { LoginSidebar } from '@/components/login/LoginSidebar';
 import { LoginForm } from '@/components/login/LoginForm';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
-/**
- * LoginPage
- * Orchestrates the split-screen login experience.
- * Mobile-First: Stacked on mobile, Split-screen on Desktop (lg+).
- */
 export default function LoginPage() {
+  useEffect(() => {
+    if (localStorage.getItem('pgi_token')) {
+      window.location.href = '/dashboard';
+    }
+  }, []);
+
   return (
     <main className="min-h-screen flex flex-col lg:flex-row bg-background font-sans selection:bg-accent/30 transition-colors duration-500 overflow-x-hidden">
       

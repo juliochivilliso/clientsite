@@ -40,7 +40,7 @@ export const LoginForm: React.FC = () => {
       // Simulate successful auth — replace with real Apollo mutation
       await new Promise(r => setTimeout(r, 1200));
       localStorage.setItem('pgi_token', 'demo-token');
-      window.location.href = 'http://51.161.107.103:3000/';
+      window.location.href = '/dashboard';
     } catch {
       setError('Error al iniciar sesión. Intentá de nuevo.');
       setLoading(false);

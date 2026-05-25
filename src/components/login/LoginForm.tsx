@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui';
 import { PasswordField } from './PasswordField';
@@ -16,12 +16,14 @@ export const LoginForm: React.FC = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
-  const [rememberMe, setRememberMe] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('pgi_remember') === 'true';
+  const [rememberMe, setRememberMe] = useState(false);
+
+  useEffect(() => {
+    const stored = localStorage.getItem('pgi_remember');
+    if (stored === 'true') {
+      setRememberMe(true);
     }
-    return false;
-  });
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,10 +36,15 @@ export const LoginForm: React.FC = () => {
 
     setLoading(true);
 
-    // Simulate successful auth — replace with real Apollo mutation
-    await new Promise(r => setTimeout(r, 1200));
-    localStorage.setItem('pgi_token', 'demo-token');
-    router.push('/dashboard');
+    try {
+      // Simulate successful auth — replace with real Apollo mutation
+      await new Promise(r => setTimeout(r, 1200));
+      localStorage.setItem('pgi_token', 'demo-token');
+      window.location.href = '/dashboard';
+    } catch {
+      setError('Error al iniciar sesión. Intentá de nuevo.');
+      setLoading(false);
+    }
   };
 
   return (
